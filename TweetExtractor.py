@@ -2,6 +2,11 @@
 """TweetExtractor.py
 
 Main module for downloading tweets from Twitter using tweepy
+This version is adapted for downloading a training set for sentiment
+calculation using naives bayes in mahout 
+	
+	
+Author: Vicente Ruben Del Pino Ruiz	
 	
 Example:
 	$TweetExtractor.py Configuration/ConfigurationFile.json
@@ -25,13 +30,11 @@ def printConfiguration(confData):
 	print("\t API Secret:\t\t"+confData["API Secret"])
 	print("\t Access Token:\t\t"+confData["Access Token"])
 	print("\t Access Token Secret:\t"+confData["Access Token Secret"])
-	print("\t Output File:\t\t"+confData["Output File"])
-	print("\t Output Common Folder:\t\t"+confData["Output Common Folder"])
-	print("\t Output Single Folder:\t\t"+confData["Output Single Folder"])
+	print("\t Output Folder:\t\t"+confData["Output Folder"])
 	#The filter is a list of keywords, at least one must be in the tweet
 	for filter in list(confData["Filter"]):
 		print("\t Filter:\t\t"+filter)
-	print("\t Tweets per file:\t"+str(confData["Tweets per file"]))
+	print("\t Tweets:\t"+str(confData["Tweets"]))
 
 
 
@@ -111,7 +114,8 @@ def main():
 	except IndexError:
 		print "Use of TweetExtractor:"
 		print "\t TwwetExtractor.py configurationFile.json"	
-	
+	except KeyboardInterrupt:
+		exit(0)
 	
 
 if __name__ == '__main__':
