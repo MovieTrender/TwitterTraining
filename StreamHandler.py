@@ -63,11 +63,13 @@ class StreamHandler(StreamListener):
 	
 		"""
     
-		tweet = json.loads(status)
+		tweetJson = json.loads(status)
     	
 		
-		tweet_id=tweet["id_str"]
-		tweet=tweet["text"].encode('UTF-8')
+		tweet_id=tweetJson["id_str"]
+		tweet=tweetJson["text"].encode('UTF-8')
+		user_language = tweetJson["user"]["lang"]
+		
 		
 		#Write the tweet to a single file with the name as the tweetId and the content as the tweet
 		self.singleOutput  = open(self.outputFolder+'//'+tweet_id, 'wb+')

@@ -108,8 +108,9 @@ def main():
 		twitterAuth= createAuth(confData)
 		twitterListener=StreamHandler(confData)
 		twitterStream=tweepy.Stream(auth=twitterAuth,listener=twitterListener)
-
-		twitterStream.filter(track=filter)
+		
+		#Filtering by filters defined in configuration and language=English
+		twitterStream.filter(track=filter, languages=["en"])
 	
 	except IndexError:
 		print "Use of TweetExtractor:"
