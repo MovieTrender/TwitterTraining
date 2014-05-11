@@ -8,7 +8,7 @@ This process is a variation of [Twitter Layer](https://github.com/MovieTrender/T
 
 Execution:
 
-	python TweetExtractor.py Configuration/ConfigurationTrainingPositive.json
+	python TweetExtractor.py Configuration/ConfigurationTraining.json
 
 
 ###Configuration
